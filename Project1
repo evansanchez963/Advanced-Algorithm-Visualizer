@@ -1,0 +1,28 @@
+#include <iostream>
+
+int Fib(int k);
+int Euclid(int m, int n);
+
+int main() {
+    //int ans = Fib(12);
+    //std::cout << ans << std::endl;
+
+    //int ans2 = Euclid(31415, 14142);
+    int ans2 = Euclid(100, 40);
+    std::cout << ans2 << std::endl;
+    return 0;
+}
+
+int Fib(int k){
+    if(k == 0)
+        return 0;
+    if(k == 1)
+        return 1;
+    return Fib(k-1) + Fib(k-2);
+}
+
+int Euclid(int m, int n){
+    if(n == 0 || n == 1)
+        return 0;
+    return 1 + Euclid(n, m % n);
+}
