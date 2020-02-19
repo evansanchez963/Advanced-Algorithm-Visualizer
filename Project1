@@ -1,28 +1,47 @@
-#include <iostream>
+from matplotlib import pyplot as plt
 
-int Fib(int k);
-int Euclid(int m, int n);
-
-int main() {
-    //int ans = Fib(12);
-    //std::cout << ans << std::endl;
-
-    //int ans2 = Euclid(31415, 14142);
-    int ans2 = Euclid(100, 40);
-    std::cout << ans2 << std::endl;
-    return 0;
-}
-
-int Fib(int k){
-    if(k == 0)
+"Task 1 Functions"
+def A(k):
+    if k == 0 or k == 1:
         return 0;
-    if(k == 1)
-        return 1;
-    return Fib(k-1) + Fib(k-2);
-}
+    return A(k-1) + A(k-2) + 1
 
-int Euclid(int m, int n){
-    if(n == 0 || n == 1)
-        return 0;
-    return 1 + Euclid(n, m % n);
-}
+def Fib(k):
+    if k == 0:
+        return 0
+    if k == 1:
+        return 1
+    return Fib(k-2) + Fib(k-1)
+
+def Euclid(m, n):
+    if n == 0 or n == 1:
+        return 0
+    return 1 + Euclid(n, m % n)
+
+def main():
+
+    values = []
+    Fib_ops = []
+    Euclid_ops = []
+    print("Task 1")
+    input1 = int(input("Enter a value for k: "))
+
+    for i in range(input1):
+        values.append(i)
+        Fib_ops.append(A(i))
+        Euclid_ops.append(Euclid(Fib(i+1),Fib(i)))
+
+
+    plt.scatter(values,Fib_ops)
+    plt.title("Fibonnaci Sequence")
+    plt.xlabel("Value of k")
+    plt.ylabel("Number of Operations")
+    plt.show()
+
+    plt.scatter(values,Euclid_ops)
+    plt.title("Euclid's Algorithm")
+    plt.xlabel("Value of k")
+    plt.ylabel("Number of Operations")
+    plt.show()
+
+main()
