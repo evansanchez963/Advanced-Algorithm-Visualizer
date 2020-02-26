@@ -51,15 +51,14 @@ def main():
             DB1_ops = []
             DBC_ops = []
             DaC_ops = []
-            print("Task 2")
-            input1 = int(input("Enter a value for a: "))
-            input2 = int(input("Enter a value for n: "))
+            a = 2
+            n = 15
 
-            for i in range(input2 + 1):
+            for i in range(n + 1):
                 values.append(i)
-                DB1_ops.append(Task2.M_DB1(input1,i))
-                DBC_ops.append(Task2.M_DBC(input1,i))
-                DaC_ops.append(Task2.M_DaC(input1,i))
+                DB1_ops.append(Task2.M_DB1(a,i))
+                DBC_ops.append(Task2.M_DBC(a,i))
+                DaC_ops.append(Task2.M_DaC(a,i))
 
             plt.scatter(values, DB1_ops, c='r', label='Decrease By One')
             plt.scatter(values, DBC_ops, c='g', label='Decrease By Constant')
@@ -139,3 +138,4 @@ def main():
             plt.show()
 
 main()
+
