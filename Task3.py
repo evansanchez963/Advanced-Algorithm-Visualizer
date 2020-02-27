@@ -23,8 +23,8 @@ def CselectionSort(L,n):
         bigindex = 0
         for j in range(n-i):
             if(L[j] > L[bigindex]):
-                count = count + 1
                 bigindex = j
+            count = count + 1
         L[j], L[bigindex] = L[bigindex], L[j]
     return count
 
@@ -38,4 +38,5 @@ def CinsertionSort(L,n):
             L[j+1] = L[j]
             j = j - 1
         L[j+1] = index
+        count = count + 1
     return count
