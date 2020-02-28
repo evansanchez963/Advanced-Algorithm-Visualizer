@@ -1,21 +1,23 @@
-def A(k):
-    if k == 0 or k == 1:
-        return 1;
-    return A(k-1) + A(k-2) + 1
+count = 0
 
 def Fib(k):
+    global count
     if k == 0:
         return 0
     if k == 1:
         return 1
+    count = count + 1
     return Fib(k-2) + Fib(k-1)
 
-def Euclid(m, n):
-    if m == 0:
-        return 0
-    return 1 + Euclid(n%m, m)
-
 def GCD(m, n):
+    global count
     if m == 0:
         return n
+    count = count + 1
     return GCD(n%m, m)
+
+def retcount():
+    global count
+    temp = count
+    count = 0
+    return temp
