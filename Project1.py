@@ -22,11 +22,13 @@ def main():
 
             for i in range(10):
                 values.append(i)
-                Fib_ops.append(Task1.A(i))
-                Euclid_ops.append(Task1.Euclid(Task1.Fib(i+1),Task1.Fib(i)))
+                Task1.Fib(i)
+                Fib_ops.append(Task1.retcount())
+                Task1.GCD(Task1.Fib(i+1),Task1.Fib(i))
+                Euclid_ops.append(Task1.retcount())
 
             plt.scatter(values,Fib_ops)
-            plt.title("Fibonnaci Sequence")
+            plt.title("Fibonacci Sequence")
             plt.xlabel("Value of k")
             plt.ylabel("Number of Operations")
             plt.show()
@@ -52,13 +54,16 @@ def main():
             DBC_ops = []
             DaC_ops = []
             a = 2
-            n = 15
+            n = 20
 
             for i in range(n + 1):
                 values.append(i)
-                DB1_ops.append(Task2.M_DB1(a,i))
-                DBC_ops.append(Task2.M_DBC(a,i))
-                DaC_ops.append(Task2.M_DaC(a,i))
+                Task2.exp_DB1(a,i)
+                DB1_ops.append(Task2.retcount())
+                Task2.exp_DBC(a,i)
+                DBC_ops.append(Task2.retcount())
+                Task2.exp_DaC(a,i)
+                DaC_ops.append(Task2.retcount())
 
             plt.scatter(values, DB1_ops, c='r', label='Decrease By One')
             plt.scatter(values, DBC_ops, c='g', label='Decrease By Constant')
@@ -95,8 +100,11 @@ def main():
                 a = worst_case.copy()
                 b = worst_case.copy()
                 values.append(i)
-                selectionOps.append(Task3.CselectionSort(a,i))
-                insertionOps.append(Task3.CinsertionSort(b,i))
+                Task3.insertionSort(a,i)
+                insertionOps.append(Task3.retcount())
+                Task3.selectionSort(b,i)
+                selectionOps.append(Task3.retcount())
+
             plt.scatter(values, selectionOps, c='r', label='Selection Sort')
             plt.scatter(values, insertionOps, c='b', label='Insertion Sort')
             plt.title("Worst Case")
@@ -111,8 +119,11 @@ def main():
             for i in range(len(avg_case)):
                 a = avg_case.copy()
                 b = avg_case.copy()
-                selectionOps.append(Task3.CselectionSort(a, i))
-                insertionOps.append(Task3.CinsertionSort(b, i))
+                Task3.insertionSort(a, i)
+                insertionOps.append(Task3.retcount())
+                Task3.selectionSort(b, i)
+                selectionOps.append(Task3.retcount())
+
             plt.scatter(values, selectionOps, c='r', label='Selection Sort')
             plt.scatter(values, insertionOps, c='b', label='Insertion Sort')
             plt.title("Average Case")
@@ -127,8 +138,11 @@ def main():
             for i in range(len(worst_case)):
                 a = best_case.copy()
                 b = best_case.copy()
-                selectionOps.append(Task3.CselectionSort(a, i))
-                insertionOps.append(Task3.CinsertionSort(b, i))
+                Task3.insertionSort(a, i)
+                insertionOps.append(Task3.retcount())
+                Task3.selectionSort(b, i)
+                selectionOps.append(Task3.retcount())
+
             plt.scatter(values, selectionOps, c='r', label='Selection Sort')
             plt.scatter(values, insertionOps, c='b', label='Insertion Sort')
             plt.title("Best Case")
@@ -138,4 +152,3 @@ def main():
             plt.show()
 
 main()
-
