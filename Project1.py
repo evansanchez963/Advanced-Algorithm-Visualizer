@@ -18,25 +18,24 @@ def main():
             values = []
             Fib_ops = []
             Euclid_ops = []
-            print("Task 1")
 
-            for i in range(10):
+            for i in range(30):
                 values.append(i)
                 Task1.Fib(i)
                 Fib_ops.append(Task1.retcount())
                 Task1.GCD(Task1.Fib(i+1),Task1.Fib(i))
-                Euclid_ops.append(Task1.retcount())
+                Euclid_ops.append(Task1.retcount2())
 
-            plt.scatter(values,Fib_ops)
+            plt.plot(values,Fib_ops, '-o')
             plt.title("Fibonacci Sequence")
             plt.xlabel("Value of k")
             plt.ylabel("Number of Operations")
             plt.show()
 
-            plt.scatter(values,Euclid_ops)
+            plt.plot(values,Euclid_ops, '-o')
             plt.title("Euclid's Algorithm")
-            plt.xlabel("Value of k")
-            plt.ylabel("Number of Operations")
+            plt.xlabel("Value of n")
+            plt.ylabel("Number of Modulo Divisions")
             plt.show()
 
     elif task==2:
@@ -54,7 +53,7 @@ def main():
             DBC_ops = []
             DaC_ops = []
             a = 2
-            n = 20
+            n = 30
 
             for i in range(n + 1):
                 values.append(i)
@@ -65,12 +64,12 @@ def main():
                 Task2.exp_DaC(a,i)
                 DaC_ops.append(Task2.retcount())
 
-            plt.scatter(values, DB1_ops, c='r', label='Decrease By One')
-            plt.scatter(values, DBC_ops, c='g', label='Decrease By Constant')
-            plt.scatter(values, DaC_ops, c='b', label='Divide and Conquer')
+            plt.plot(values, DB1_ops, '-o', c='r', label='Decrease By One')
+            plt.plot(values, DBC_ops, '-o', c='g', label='Decrease By Constant')
+            plt.plot(values, DaC_ops, '-o', c='b', label='Divide and Conquer')
             plt.title("Exponentiation")
             plt.xlabel("Value of n")
-            plt.ylabel("Number of Operations")
+            plt.ylabel("Number of Multiplications")
             plt.legend(loc=2)
             plt.show()
 
@@ -91,9 +90,9 @@ def main():
             values = []
             selectionOps = []
             insertionOps = []
-            worst_case = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-            avg_case = [5, 3, 10, 7, 1, 8, 2, 6, 4, 9]
-            best_case = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            worst_case = [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+            avg_case = [5, 3, 11, 14, 18, 10, 7, 19, 1, 15, 20, 8, 12, 2, 16, 6, 13, 17, 4, 9]
+            best_case = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
             'Show Worst Case'
             for i in range(len(worst_case)):
@@ -105,11 +104,11 @@ def main():
                 Task3.selectionSort(b,i)
                 selectionOps.append(Task3.retcount())
 
-            plt.scatter(values, selectionOps, c='r', label='Selection Sort')
-            plt.scatter(values, insertionOps, c='b', label='Insertion Sort')
+            plt.plot(values, selectionOps, '-o', c='r', label='Selection Sort')
+            plt.plot(values, insertionOps, '-o', c='b', label='Insertion Sort')
             plt.title("Worst Case")
             plt.xlabel("Value of n")
-            plt.ylabel("Number of Operations")
+            plt.ylabel("Number of Comparisons")
             plt.legend(loc=2)
             plt.show()
             selectionOps.clear()
@@ -124,11 +123,11 @@ def main():
                 Task3.selectionSort(b, i)
                 selectionOps.append(Task3.retcount())
 
-            plt.scatter(values, selectionOps, c='r', label='Selection Sort')
-            plt.scatter(values, insertionOps, c='b', label='Insertion Sort')
+            plt.plot(values, selectionOps, '-o', c='r', label='Selection Sort')
+            plt.plot(values, insertionOps, '-o', c='b', label='Insertion Sort')
             plt.title("Average Case")
             plt.xlabel("Value of n")
-            plt.ylabel("Number of Operations")
+            plt.ylabel("Number of Comparisons")
             plt.legend(loc=2)
             plt.show()
             selectionOps.clear()
@@ -143,11 +142,11 @@ def main():
                 Task3.selectionSort(b, i)
                 selectionOps.append(Task3.retcount())
 
-            plt.scatter(values, selectionOps, c='r', label='Selection Sort')
-            plt.scatter(values, insertionOps, c='b', label='Insertion Sort')
+            plt.plot(values, selectionOps, '-o', c='r', label='Selection Sort')
+            plt.plot(values, insertionOps, '-o', c='b', label='Insertion Sort')
             plt.title("Best Case")
             plt.xlabel("Value of n")
-            plt.ylabel("Number of Operations")
+            plt.ylabel("Number of Comparisons")
             plt.legend(loc=2)
             plt.show()
 
