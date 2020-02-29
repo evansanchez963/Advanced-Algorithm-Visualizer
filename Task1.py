@@ -1,4 +1,5 @@
 count = 0
+count2 = 0
 
 def Fib(k):
     global count
@@ -10,14 +11,21 @@ def Fib(k):
     return Fib(k-2) + Fib(k-1)
 
 def GCD(m, n):
-    global count
+    global count2
     if m == 0:
+        count2 = count2 + 1
         return n
-    count = count + 1
+    count2 = count2 + 1
     return GCD(n%m, m)
 
 def retcount():
     global count
     temp = count
     count = 0
+    return temp
+
+def retcount2():
+    global count2
+    temp = count2
+    count2 = 0
     return temp
